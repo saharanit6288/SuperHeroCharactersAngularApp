@@ -32,7 +32,7 @@ export class AddSuperHeroComponent implements OnInit {
 
     this.superHeroService.create(data).subscribe({
       next: (res) => {
-        console.log(res);
+        //console.log(res);
         this.submitted = true;
         Swal.fire({
           position: "top-end",

@@ -36,7 +36,7 @@ export class SuperHeroDetailsComponent implements OnInit {
     this.superHeroService.get(id).subscribe({
       next: (data) => {
         this.currentHero = data;
-        console.log(data);
+        //console.log(data);
       },
       error: (e) => console.error(e)
     });
@@ -47,7 +47,7 @@ export class SuperHeroDetailsComponent implements OnInit {
       .update(this.currentHero.id, this.currentHero)
       .subscribe({
         next: (res) => {
-          console.log(res);
+          //console.log(res);
           Swal.fire({
             position: "top-end",
             icon: 'success',
@@ -73,7 +73,7 @@ export class SuperHeroDetailsComponent implements OnInit {
       if (result.isConfirmed) {
         this.superHeroService.delete(this.currentHero.id).subscribe({
           next: (res) => {
-            console.log(res);
+            //console.log(res);
             Swal.fire({
               position: "top-end",
               icon: 'success',

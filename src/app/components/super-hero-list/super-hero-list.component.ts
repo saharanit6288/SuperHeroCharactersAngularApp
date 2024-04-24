@@ -22,7 +22,7 @@ export class SuperHeroListComponent implements OnInit {
     this.superHeroService.getAll().subscribe({
       next: (data) => {
         this.heroes = data;
-        console.log(data);
+        //console.log(data);
       },
       error: (e) => console.error(e)
     });

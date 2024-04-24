@@ -29,7 +29,7 @@ export class AccountService {
   login(email: string, password: string) {
       return this.http.post<User>(`${baseApiUrl}/login`, { email, password })
           .pipe(map(response => {
-              console.log('response', response);
+              //console.log('response', response);
               var userInfo: User = {
                 email : email,
                 accessToken : response.accessToken,
