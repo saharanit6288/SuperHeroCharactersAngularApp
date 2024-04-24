@@ -1,0 +1,68 @@
+
+<div>
+    <div class="submit-form">
+      <div *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            [(ngModel)]="hero.name"
+            name="name"
+          />
+        </div>
+  
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            id="firstNname"
+            required
+            [(ngModel)]="hero.firstName"
+            name="firstNname"
+          />
+        </div>
+
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="lastName"
+              required
+              [(ngModel)]="hero.lastName"
+              name="lastName"
+            />
+          </div>
+    
+          <div class="form-group">
+            <label for="place">Place</label>
+            <input
+              type="text"
+              class="form-control"
+              id="place"
+              required
+              [(ngModel)]="hero.place"
+              name="place"
+            />
+          </div>
+  
+        <button (click)="saveHero()" class="btn btn-success">Submit</button>
+
+        <span style="float: right;">
+          <a class="badge badge-primary mb-2"
+              routerLink="/superheroes">
+              Back
+          </a>
+        </span>
+      </div>
+  
+      <div *ngIf="submitted">
+        <button class="btn btn-success" (click)="newHero()">Add</button>
+      </div>
+    </div>
+  </div>
+  

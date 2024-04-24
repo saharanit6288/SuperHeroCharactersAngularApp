@@ -1,0 +1,24 @@
+
+<div class="list row">
+    <div class="col-md-6">
+      <h4>Super Hero List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let hero of heroes; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveHero(hero, i)"
+        >
+          <b>{{ hero.name }}</b> | <i>Alias: {{ hero.firstName }} {{ hero.lastName }}</i>
+        </li>
+      </ul>
+  
+    </div>
+    <div class="col-md-6">
+      <app-super-hero-details
+        [viewMode]="true"
+        [currentHero]="currentHero"
+      ></app-super-hero-details>
+    </div>
+  </div>
+  
