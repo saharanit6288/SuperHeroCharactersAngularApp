@@ -2,31 +2,40 @@
 <div>
     <div class="submit-form">
       <div *ngIf="!submitted">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="name"
-            required
-            [(ngModel)]="hero.name"
-            name="name"
-          />
-        </div>
-  
-        <div class="form-group">
-          <label for="firstName">First Name</label>
-          <input
-            type="text"
-            class="form-control"
-            id="firstNname"
-            required
-            [(ngModel)]="hero.firstName"
-            name="firstNname"
-          />
-        </div>
+        <form #form1="ngForm" id="form1">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              required
+              [(ngModel)]="hero.name"
+              name="name"
+              #name="ngModel"
+            />
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors?.['required']">Name is required.</div>
+          </div>
+    
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="firstName"
+              required
+              [(ngModel)]="hero.firstName"
+              name="firstName"
+              #firstName="ngModel"
+            />
+          </div>
+          <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+            <div *ngIf="firstName.errors?.['required']">First Name is required.</div>
+          </div>
 
-        <div class="form-group">
+          <div class="form-group">
             <label for="lastName">Last Name</label>
             <input
               type="text"
@@ -35,9 +44,13 @@
               required
               [(ngModel)]="hero.lastName"
               name="lastName"
+              #lastName="ngModel"
             />
           </div>
-    
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+            <div *ngIf="lastName.errors?.['required']">Last Name is required.</div>
+          </div>
+      
           <div class="form-group">
             <label for="place">Place</label>
             <input
@@ -47,17 +60,22 @@
               required
               [(ngModel)]="hero.place"
               name="place"
+              #place="ngModel"
             />
           </div>
-  
-        <button (click)="saveHero()" class="btn btn-success">Submit</button>
+          <div *ngIf="place.invalid && (place.dirty || place.touched)" class="alert alert-danger">
+            <div *ngIf="place.errors?.['required']">Place is required.</div>
+          </div>
+    
+          <button (click)="saveHero()" [disabled]="form1.invalid" class="btn btn-success">Submit</button>
 
-        <span style="float: right;">
-          <a class="badge badge-primary mb-2"
-              routerLink="/superheroes">
-              Back
-          </a>
-        </span>
+          <span style="float: right;">
+            <a class="badge badge-primary mb-2"
+                routerLink="/superheroes">
+                Back
+            </a>
+          </span>
+        </form>
       </div>
   
       <div *ngIf="submitted">
